@@ -1,0 +1,844 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#060d19">
+
+  <title>Forex Trading Journey | Telegram Community</title>
+  <meta name="description" content="Learn forex trading concepts, market analysis, chart reading and risk management in our Telegram education community.">
+
+  <style>
+    :root {
+      --bg: #060d19;
+      --card: #0d1a2b;
+      --card2: #102239;
+      --green: #65f0c5;
+      --green2: #2bcda3;
+      --text: #f5f8ff;
+      --muted: #a4b5ca;
+      --border: rgba(148, 178, 210, .16);
+      --gold: #f4cb78;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-family: Inter, Arial, sans-serif;
+      color: var(--text);
+      line-height: 1.65;
+      background:
+        radial-gradient(ellipse at 50% 0%, #142d48 0%, transparent 45%),
+        radial-gradient(ellipse at 0% 50%, rgba(35, 160, 128, .08), transparent 40%),
+        var(--bg);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    a:focus-visible {
+      outline: 3px solid white;
+      outline-offset: 4px;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 850px;
+      margin: auto;
+      padding: 22px 16px 30px;
+    }
+
+    /* HEADER */
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 23px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: .6px;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(101, 240, 197, .35);
+      border-radius: 12px;
+      background: rgba(101, 240, 197, .09);
+      color: var(--green);
+      font-size: 24px;
+    }
+
+    .header-tag {
+      padding: 7px 11px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      color: #c1d0df;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .6px;
+    }
+
+    .header-tag span {
+      color: var(--green);
+      margin-right: 4px;
+    }
+
+    /* HERO */
+
+    .hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding: 39px 24px 28px;
+      text-align: center;
+      border: 1px solid rgba(125, 166, 205, .22);
+      border-radius: 26px;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(65, 145, 172, .17), transparent 60%),
+        linear-gradient(150deg, #10243b, #091422 78%);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, .25);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 250px;
+      height: 250px;
+      top: -170px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background: var(--green);
+      opacity: .12;
+      filter: blur(70px);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 8px 13px;
+      margin-bottom: 23px;
+      border: 1px solid rgba(101, 240, 197, .25);
+      border-radius: 50px;
+      background: rgba(101, 240, 197, .06);
+      color: var(--green);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 12px var(--green);
+    }
+
+    .hero-logo {
+      width: 82px;
+      height: 82px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 22px;
+      border: 1px solid rgba(101, 240, 197, .4);
+      border-radius: 24px;
+      background: linear-gradient(145deg, #17404a, #102638);
+      box-shadow: 0 0 35px rgba(101, 240, 197, .10);
+      font-size: 39px;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    h1 {
+      margin-bottom: 18px;
+      font-size: clamp(32px, 7vw, 52px);
+      font-weight: 900;
+      letter-spacing: -1.8px;
+      line-height: 1.14;
+    }
+
+    .highlight {
+      color: var(--green);
+      background: linear-gradient(90deg, #8affd8, #40d9aa);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      max-width: 560px;
+      margin: 0 auto;
+      color: #b6c6d9;
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    /* GOAL CARD */
+
+    .goal-card {
+      margin-top: 29px;
+      padding: 23px 13px;
+      border: 1px solid rgba(244, 203, 120, .25);
+      border-radius: 18px;
+      background:
+        radial-gradient(ellipse at 100% 0%, rgba(244, 203, 120, .09), transparent 60%),
+        #0b1726;
+    }
+
+    .goal-label {
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.7px;
+    }
+
+    .goal-amount {
+      margin: 8px 0;
+      font-size: clamp(25px, 6vw, 39px);
+      font-weight: 900;
+      letter-spacing: -.8px;
+      line-height: 1.4;
+    }
+
+    .goal-arrow {
+      color: var(--gold);
+      padding: 0 4px;
+    }
+
+    .goal-description {
+      color: #b3c1d0;
+      font-size: 12px;
+    }
+
+    .goal-note {
+      display: inline-block;
+      margin-top: 13px;
+      padding: 5px 9px;
+      border-radius: 7px;
+      background: rgba(244, 203, 120, .08);
+      color: #e9d3a3;
+      font-size: 10px;
+    }
+
+    /* SECTION TITLES */
+
+    .section-heading {
+      margin: 35px 0 18px;
+      text-align: center;
+    }
+
+    .mini-label {
+      color: var(--green);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .section-heading h2 {
+      margin-top: 5px;
+      font-size: clamp(22px, 5vw, 29px);
+      font-weight: 900;
+      letter-spacing: -.5px;
+    }
+
+    .section-heading p {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* FEATURES */
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      text-align: left;
+    }
+
+    .feature {
+      min-width: 0;
+      padding: 19px 16px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: linear-gradient(145deg, #112137, #0a1524);
+      transition: transform .2s ease, border-color .2s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-3px);
+      border-color: rgba(101, 240, 197, .4);
+    }
+
+    .feature-icon {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 12px;
+      border: 1px solid rgba(101, 240, 197, .2);
+      border-radius: 12px;
+      background: rgba(101, 240, 197, .08);
+      font-size: 21px;
+    }
+
+    .feature h3 {
+      margin-bottom: 6px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .feature p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    /* LEARNING STEPS */
+
+    .learning-card {
+      margin-top: 24px;
+      padding: 22px 20px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: rgba(11, 23, 40, .85);
+    }
+
+    .learning-card h3 {
+      margin-bottom: 18px;
+      font-size: 17px;
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      margin-top: 15px;
+    }
+
+    .step-number {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      border: 1px solid rgba(101, 240, 197, .25);
+      border-radius: 10px;
+      background: rgba(101, 240, 197, .08);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .step h4 {
+      margin-bottom: 3px;
+      font-size: 13px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    /* TELEGRAM CTA */
+
+    .cta {
+      margin-top: 27px;
+      padding: 26px 20px;
+      border: 1px solid rgba(101, 240, 197, .25);
+      border-radius: 21px;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 50% 100%, rgba(33, 201, 155, .10), transparent 65%),
+        #0b1928;
+    }
+
+    .cta h2 {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -.5px;
+    }
+
+    .cta > p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .join-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      width: 100%;
+      min-height: 59px;
+      margin-top: 22px;
+      padding: 15px 14px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: 13px;
+      background: linear-gradient(110deg, #7af7d2, #30d3a5);
+      box-shadow: 0 8px 28px rgba(33, 201, 155, .15);
+      color: #062018;
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: .3px;
+      text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .join-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(33, 201, 155, .27);
+    }
+
+    .telegram-icon {
+      width: 25px;
+      height: 25px;
+      flex-shrink: 0;
+    }
+
+    .cta-note {
+      margin-top: 13px;
+      color: #91a8bd;
+      font-size: 11px;
+    }
+
+    .cta-note span {
+      color: var(--green);
+    }
+
+    /* ABOUT */
+
+    .about {
+      margin-top: 23px;
+      padding: 21px;
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      background: rgba(11, 23, 40, .7);
+    }
+
+    .about h3 {
+      margin-bottom: 9px;
+      font-size: 16px;
+    }
+
+    .about p {
+      color: #b1c1d1;
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    /* RISK DISCLAIMER */
+
+    .risk {
+      margin-top: 20px;
+      padding: 17px;
+      border: 1px solid rgba(244, 203, 120, .18);
+      border-left: 3px solid var(--gold);
+      border-radius: 9px;
+      background: rgba(244, 203, 120, .045);
+      color: #c8c1ae;
+      font-size: 11px;
+      line-height: 1.9;
+    }
+
+    .risk strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--gold);
+      font-size: 12px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 28px 8px 5px;
+      text-align: center;
+      color: #8295aa;
+      font-size: 10px;
+      line-height: 2;
+    }
+
+    .footer-line {
+      width: 48px;
+      height: 2px;
+      margin: 0 auto 15px;
+      border-radius: 10px;
+      background: var(--green);
+      opacity: .7;
+    }
+
+    .footer-brand {
+      color: #c5d3e1;
+      font-weight: 800;
+    }
+
+    /* ANIMATION */
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+
+    /* MOBILE RESPONSIVE */
+
+    @media (max-width: 480px) {
+      .page {
+        padding: 15px 12px 22px;
+      }
+
+      .header {
+        margin-bottom: 17px;
+      }
+
+      .brand {
+        gap: 8px;
+        font-size: 12px;
+      }
+
+      .brand-icon {
+        width: 35px;
+        height: 35px;
+      }
+
+      .header-tag {
+        padding: 6px 8px;
+        font-size: 9px;
+        letter-spacing: .2px;
+      }
+
+      .hero {
+        padding: 29px 15px 22px;
+        border-radius: 21px;
+      }
+
+      .eyebrow {
+        margin-bottom: 20px;
+        font-size: 9px;
+        letter-spacing: .7px;
+      }
+
+      .hero-logo {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 20px;
+        border-radius: 20px;
+        font-size: 33px;
+      }
+
+      h1 {
+        letter-spacing: -1px;
+      }
+
+      .subtitle {
+        font-size: 12px;
+      }
+
+      .goal-card {
+        margin-top: 23px;
+        padding: 19px 9px;
+      }
+
+      .goal-amount {
+        letter-spacing: -1px;
+      }
+
+      .features {
+        gap: 9px;
+      }
+
+      .feature {
+        padding: 14px 12px;
+      }
+
+      .feature-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+      }
+
+      .feature h3 {
+        font-size: 12px;
+      }
+
+      .feature p {
+        font-size: 11px;
+      }
+
+      .learning-card,
+      .about {
+        padding: 17px 14px;
+      }
+
+      .cta {
+        padding: 23px 14px;
+      }
+
+      .cta h2 {
+        font-size: 21px;
+      }
+
+      .join-btn {
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 350px) {
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .header-tag {
+        max-width: 105px;
+        white-space: normal;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="page">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">↗</div>
+        <span>FOREX JOURNEY</span>
+      </div>
+
+      <div class="header-tag">
+        <span>◆</span> LEARN &amp; GROW
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+
+      <div class="eyebrow">
+        <span class="live-dot"></span>
+        FOREX EDUCATION COMMUNITY
+      </div>
+
+      <div class="hero-logo" aria-hidden="true">📈</div>
+
+      <h1>
+        Learn Forex.<br>
+        <span class="highlight">Trade With a Plan.</span>
+      </h1>
+
+      <p class="subtitle">
+        Market analysis, chart reading, trading concepts aur
+        risk management seekhein — ek hi Telegram community mein.
+      </p>
+
+      <!-- GOAL CARD -->
+      <div class="goal-card">
+        <div class="goal-label">30-DAY LEARNING JOURNEY</div>
+
+        <div class="goal-amount">
+          ₹10,000 <span class="goal-arrow">→</span> ₹1 Lakh
+        </div>
+
+        <p class="goal-description">
+          Ek goal. Ek disciplined learning journey.
+        </p>
+
+        <div class="goal-note">
+          Personal target only · No guaranteed returns
+        </div>
+      </div>
+
+      <!-- FEATURES -->
+      <div class="section-heading">
+        <div class="mini-label">WHAT YOU'LL LEARN</div>
+        <h2>Telegram Par Kya Milega?</h2>
+        <p>Trading ko samajhne ke liye educational content.</p>
+      </div>
+
+      <div class="features">
+
+        <article class="feature">
+          <div class="feature-icon" aria-hidden="true">📊</div>
+          <h3>Market Analysis</h3>
+          <p>Forex trends aur price movements ko samajhna.</p>
+        </article>
+
+        <article class="feature">
+          <div class="feature-icon" aria-hidden="true">📉</div>
+          <h3>Chart Learning</h3>
+          <p>Candlesticks aur technical concepts ki learning.</p>
+        </article>
+
+        <article class="feature">
+          <div class="feature-icon" aria-hidden="true">🛡️</div>
+          <h3>Risk Management</h3>
+          <p>Stop Loss, position sizing aur capital risk ki jaankari.</p>
+        </article>
+
+        <article class="feature">
+          <div class="feature-icon" aria-hidden="true">🎯</div>
+          <h3>Trading Discipline</h3>
+          <p>Planning, patience aur disciplined decision-making.</p>
+        </article>
+
+      </div>
+
+      <!-- LEARNING JOURNEY -->
+      <div class="learning-card">
+        <h3>🚀 Your Learning Journey</h3>
+
+        <div class="step">
+          <div class="step-number">01</div>
+          <div>
+            <h4>Join the Community</h4>
+            <p>Telegram community open karein aur available content dekhein.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">02</div>
+          <div>
+            <h4>Learn the Basics</h4>
+            <p>Charts, market concepts aur risk management samjhein.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">03</div>
+          <div>
+            <h4>Build Your Own Plan</h4>
+            <p>Research aur practice ke saath apni knowledge improve karein.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TELEGRAM CTA -->
+      <div class="cta">
+        <h2>Start Your Learning Journey</h2>
+
+        <p>
+          Forex education aur market learning ke liye
+          hamari Telegram community join karein.
+        </p>
+
+        <!-- YAHAN APNA REAL TELEGRAM LINK DAALEIN -->
+        <a
+          class="join-btn"
+          href="https://t.me/+7tYiOUjhI8I1OGU1"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Join Forex Telegram Community"
+        >
+          <svg
+            class="telegram-icon"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path d="M21.7 3.3a1.6 1.6 0 0 0-1.65-.3L2.4 10.1c-1.2.48-1.18 1.16-.22 1.46l4.52 1.41 1.74 5.42c.22.6.12.84.75.84.49 0 .7-.22.97-.49l2.2-2.14 4.57 3.38c.84.46 1.45.22 1.66-.78l3.01-14.2c.31-1.24-.47-1.8-1.9-1.7ZM8.48 12.65l9.72-6.13c.48-.3.92-.14.56.2l-8.03 7.25-.31 3.3-1.94-4.62Z"/>
+          </svg>
+
+          JOIN TELEGRAM COMMUNITY
+
+          <span aria-hidden="true">→</span>
+        </a>
+
+        <div class="cta-note">
+          <span>✓</span> Telegram par khud Join karein
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about">
+      <h3>About Our Community</h3>
+
+      <p>
+        Hamara objective Forex market ki education, chart analysis,
+        trading concepts aur disciplined risk management ko samajhne
+        mein madad karna hai. Learning aur research ke saath apni
+        knowledge improve karein. Kisi bhi trade mein profit ki guarantee nahi hai.
+      </p>
+    </section>
+
+    <!-- RISK DISCLOSURE -->
+    <section class="risk">
+      <strong>⚠ Risk Disclosure</strong>
+
+      Forex aur leveraged trading mein substantial financial risk ho
+      sakta hai. Aap apni poori trading capital bhi lose kar sakte hain.
+      ₹10,000 se ₹1,00,000 ka figure sirf illustrative target hai,
+      koi promise ya guaranteed return nahi. Trading se pehle applicable
+      local laws, platform ki legality aur risks ko samjhein.
+      Sirf wahi paisa risk karein jiska loss aap afford kar sakte hain.
+      Yeh page educational information ke liye hai, personalized
+      financial advice nahi.
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-line"></div>
+
+      <div class="footer-brand">
+        FOREX TRADING EDUCATION COMMUNITY
+      </div>
+
+      <div>© <span id="year">2026</span> All Rights Reserved.</div>
+
+      <div>Learn Smart. Manage Risk. Stay Disciplined.</div>
+    </footer>
+
+  </main>
+
+  <script>
+    // Automatically update the copyright year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
