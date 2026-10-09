@@ -2,843 +2,340 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#060d19">
-
-  <title>Forex Trading Journey | Telegram Community</title>
-  <meta name="description" content="Learn forex trading concepts, market analysis, chart reading and risk management in our Telegram education community.">
-
-  <style>
-    :root {
-      --bg: #060d19;
-      --card: #0d1a2b;
-      --card2: #102239;
-      --green: #65f0c5;
-      --green2: #2bcda3;
-      --text: #f5f8ff;
-      --muted: #a4b5ca;
-      --border: rgba(148, 178, 210, .16);
-      --gold: #f4cb78;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      min-height: 100vh;
-      overflow-x: hidden;
-      font-family: Inter, Arial, sans-serif;
-      color: var(--text);
-      line-height: 1.65;
-      background:
-        radial-gradient(ellipse at 50% 0%, #142d48 0%, transparent 45%),
-        radial-gradient(ellipse at 0% 50%, rgba(35, 160, 128, .08), transparent 40%),
-        var(--bg);
-    }
-
-    a {
-      color: inherit;
-    }
-
-    a:focus-visible {
-      outline: 3px solid white;
-      outline-offset: 4px;
-    }
-
-    .page {
-      width: 100%;
-      max-width: 850px;
-      margin: auto;
-      padding: 22px 16px 30px;
-    }
-
-    /* HEADER */
-
-    .header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 23px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 14px;
-      font-weight: 900;
-      letter-spacing: .6px;
-    }
-
-    .brand-icon {
-      width: 40px;
-      height: 40px;
-      display: grid;
-      place-items: center;
-      border: 1px solid rgba(101, 240, 197, .35);
-      border-radius: 12px;
-      background: rgba(101, 240, 197, .09);
-      color: var(--green);
-      font-size: 24px;
-    }
-
-    .header-tag {
-      padding: 7px 11px;
-      border: 1px solid var(--border);
-      border-radius: 30px;
-      color: #c1d0df;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: .6px;
-    }
-
-    .header-tag span {
-      color: var(--green);
-      margin-right: 4px;
-    }
-
-    /* HERO */
-
-    .hero {
-      position: relative;
-      isolation: isolate;
-      overflow: hidden;
-      padding: 39px 24px 28px;
-      text-align: center;
-      border: 1px solid rgba(125, 166, 205, .22);
-      border-radius: 26px;
-      background:
-        radial-gradient(ellipse at 50% 0%, rgba(65, 145, 172, .17), transparent 60%),
-        linear-gradient(150deg, #10243b, #091422 78%);
-      box-shadow: 0 24px 80px rgba(0, 0, 0, .25);
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      width: 250px;
-      height: 250px;
-      top: -170px;
-      left: 50%;
-      transform: translateX(-50%);
-      border-radius: 50%;
-      background: var(--green);
-      opacity: .12;
-      filter: blur(70px);
-      pointer-events: none;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 8px 13px;
-      margin-bottom: 23px;
-      border: 1px solid rgba(101, 240, 197, .25);
-      border-radius: 50px;
-      background: rgba(101, 240, 197, .06);
-      color: var(--green);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 1.2px;
-    }
-
-    .live-dot {
-      width: 7px;
-      height: 7px;
-      flex-shrink: 0;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 12px var(--green);
-    }
-
-    .hero-logo {
-      width: 82px;
-      height: 82px;
-      display: grid;
-      place-items: center;
-      margin: 0 auto 22px;
-      border: 1px solid rgba(101, 240, 197, .4);
-      border-radius: 24px;
-      background: linear-gradient(145deg, #17404a, #102638);
-      box-shadow: 0 0 35px rgba(101, 240, 197, .10);
-      font-size: 39px;
-      animation: float 4s ease-in-out infinite;
-    }
-
-    h1 {
-      margin-bottom: 18px;
-      font-size: clamp(32px, 7vw, 52px);
-      font-weight: 900;
-      letter-spacing: -1.8px;
-      line-height: 1.14;
-    }
-
-    .highlight {
-      color: var(--green);
-      background: linear-gradient(90deg, #8affd8, #40d9aa);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .subtitle {
-      max-width: 560px;
-      margin: 0 auto;
-      color: #b6c6d9;
-      font-size: 14px;
-      line-height: 1.9;
-    }
-
-    /* GOAL CARD */
-
-    .goal-card {
-      margin-top: 29px;
-      padding: 23px 13px;
-      border: 1px solid rgba(244, 203, 120, .25);
-      border-radius: 18px;
-      background:
-        radial-gradient(ellipse at 100% 0%, rgba(244, 203, 120, .09), transparent 60%),
-        #0b1726;
-    }
-
-    .goal-label {
-      color: var(--gold);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 1.7px;
-    }
-
-    .goal-amount {
-      margin: 8px 0;
-      font-size: clamp(25px, 6vw, 39px);
-      font-weight: 900;
-      letter-spacing: -.8px;
-      line-height: 1.4;
-    }
-
-    .goal-arrow {
-      color: var(--gold);
-      padding: 0 4px;
-    }
-
-    .goal-description {
-      color: #b3c1d0;
-      font-size: 12px;
-    }
-
-    .goal-note {
-      display: inline-block;
-      margin-top: 13px;
-      padding: 5px 9px;
-      border-radius: 7px;
-      background: rgba(244, 203, 120, .08);
-      color: #e9d3a3;
-      font-size: 10px;
-    }
-
-    /* SECTION TITLES */
-
-    .section-heading {
-      margin: 35px 0 18px;
-      text-align: center;
-    }
-
-    .mini-label {
-      color: var(--green);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 2px;
-    }
-
-    .section-heading h2 {
-      margin-top: 5px;
-      font-size: clamp(22px, 5vw, 29px);
-      font-weight: 900;
-      letter-spacing: -.5px;
-    }
-
-    .section-heading p {
-      margin-top: 5px;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    /* FEATURES */
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      text-align: left;
-    }
-
-    .feature {
-      min-width: 0;
-      padding: 19px 16px;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      background: linear-gradient(145deg, #112137, #0a1524);
-      transition: transform .2s ease, border-color .2s ease;
-    }
-
-    .feature:hover {
-      transform: translateY(-3px);
-      border-color: rgba(101, 240, 197, .4);
-    }
-
-    .feature-icon {
-      width: 43px;
-      height: 43px;
-      display: grid;
-      place-items: center;
-      margin-bottom: 12px;
-      border: 1px solid rgba(101, 240, 197, .2);
-      border-radius: 12px;
-      background: rgba(101, 240, 197, .08);
-      font-size: 21px;
-    }
-
-    .feature h3 {
-      margin-bottom: 6px;
-      font-size: 14px;
-      font-weight: 800;
-    }
-
-    .feature p {
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.8;
-    }
-
-    /* LEARNING STEPS */
-
-    .learning-card {
-      margin-top: 24px;
-      padding: 22px 20px;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      background: rgba(11, 23, 40, .85);
-    }
-
-    .learning-card h3 {
-      margin-bottom: 18px;
-      font-size: 17px;
-    }
-
-    .step {
-      display: flex;
-      align-items: flex-start;
-      gap: 13px;
-      margin-top: 15px;
-    }
-
-    .step-number {
-      width: 32px;
-      height: 32px;
-      display: grid;
-      place-items: center;
-      flex-shrink: 0;
-      border: 1px solid rgba(101, 240, 197, .25);
-      border-radius: 10px;
-      background: rgba(101, 240, 197, .08);
-      color: var(--green);
-      font-size: 12px;
-      font-weight: 900;
-    }
-
-    .step h4 {
-      margin-bottom: 3px;
-      font-size: 13px;
-    }
-
-    .step p {
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.8;
-    }
-
-    /* TELEGRAM CTA */
-
-    .cta {
-      margin-top: 27px;
-      padding: 26px 20px;
-      border: 1px solid rgba(101, 240, 197, .25);
-      border-radius: 21px;
-      text-align: center;
-      background:
-        radial-gradient(ellipse at 50% 100%, rgba(33, 201, 155, .10), transparent 65%),
-        #0b1928;
-    }
-
-    .cta h2 {
-      font-size: 24px;
-      font-weight: 900;
-      letter-spacing: -.5px;
-    }
-
-    .cta > p {
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .join-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 11px;
-      width: 100%;
-      min-height: 59px;
-      margin-top: 22px;
-      padding: 15px 14px;
-      border: 1px solid rgba(255, 255, 255, .2);
-      border-radius: 13px;
-      background: linear-gradient(110deg, #7af7d2, #30d3a5);
-      box-shadow: 0 8px 28px rgba(33, 201, 155, .15);
-      color: #062018;
-      font-size: 14px;
-      font-weight: 900;
-      letter-spacing: .3px;
-      text-decoration: none;
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-
-    .join-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 32px rgba(33, 201, 155, .27);
-    }
-
-    .telegram-icon {
-      width: 25px;
-      height: 25px;
-      flex-shrink: 0;
-    }
-
-    .cta-note {
-      margin-top: 13px;
-      color: #91a8bd;
-      font-size: 11px;
-    }
-
-    .cta-note span {
-      color: var(--green);
-    }
-
-    /* ABOUT */
-
-    .about {
-      margin-top: 23px;
-      padding: 21px;
-      border: 1px solid var(--border);
-      border-radius: 17px;
-      background: rgba(11, 23, 40, .7);
-    }
-
-    .about h3 {
-      margin-bottom: 9px;
-      font-size: 16px;
-    }
-
-    .about p {
-      color: #b1c1d1;
-      font-size: 12px;
-      line-height: 1.9;
-    }
-
-    /* RISK DISCLAIMER */
-
-    .risk {
-      margin-top: 20px;
-      padding: 17px;
-      border: 1px solid rgba(244, 203, 120, .18);
-      border-left: 3px solid var(--gold);
-      border-radius: 9px;
-      background: rgba(244, 203, 120, .045);
-      color: #c8c1ae;
-      font-size: 11px;
-      line-height: 1.9;
-    }
-
-    .risk strong {
-      display: block;
-      margin-bottom: 5px;
-      color: var(--gold);
-      font-size: 12px;
-    }
-
-    /* FOOTER */
-
-    footer {
-      padding: 28px 8px 5px;
-      text-align: center;
-      color: #8295aa;
-      font-size: 10px;
-      line-height: 2;
-    }
-
-    .footer-line {
-      width: 48px;
-      height: 2px;
-      margin: 0 auto 15px;
-      border-radius: 10px;
-      background: var(--green);
-      opacity: .7;
-    }
-
-    .footer-brand {
-      color: #c5d3e1;
-      font-weight: 800;
-    }
-
-    /* ANIMATION */
-
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-5px);
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        scroll-behavior: auto !important;
-        animation: none !important;
-        transition: none !important;
-      }
-    }
-
-    /* MOBILE RESPONSIVE */
-
-    @media (max-width: 480px) {
-      .page {
-        padding: 15px 12px 22px;
-      }
-
-      .header {
-        margin-bottom: 17px;
-      }
-
-      .brand {
-        gap: 8px;
-        font-size: 12px;
-      }
-
-      .brand-icon {
-        width: 35px;
-        height: 35px;
-      }
-
-      .header-tag {
-        padding: 6px 8px;
-        font-size: 9px;
-        letter-spacing: .2px;
-      }
-
-      .hero {
-        padding: 29px 15px 22px;
-        border-radius: 21px;
-      }
-
-      .eyebrow {
-        margin-bottom: 20px;
-        font-size: 9px;
-        letter-spacing: .7px;
-      }
-
-      .hero-logo {
-        width: 70px;
-        height: 70px;
-        margin-bottom: 20px;
-        border-radius: 20px;
-        font-size: 33px;
-      }
-
-      h1 {
-        letter-spacing: -1px;
-      }
-
-      .subtitle {
-        font-size: 12px;
-      }
-
-      .goal-card {
-        margin-top: 23px;
-        padding: 19px 9px;
-      }
-
-      .goal-amount {
-        letter-spacing: -1px;
-      }
-
-      .features {
-        gap: 9px;
-      }
-
-      .feature {
-        padding: 14px 12px;
-      }
-
-      .feature-icon {
-        width: 38px;
-        height: 38px;
-        font-size: 18px;
-      }
-
-      .feature h3 {
-        font-size: 12px;
-      }
-
-      .feature p {
-        font-size: 11px;
-      }
-
-      .learning-card,
-      .about {
-        padding: 17px 14px;
-      }
-
-      .cta {
-        padding: 23px 14px;
-      }
-
-      .cta h2 {
-        font-size: 21px;
-      }
-
-      .join-btn {
-        font-size: 12px;
-      }
-    }
-
-    @media (max-width: 350px) {
-      .features {
-        grid-template-columns: 1fr;
-      }
-
-      .header-tag {
-        max-width: 105px;
-        white-space: normal;
-        text-align: center;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#050b16">
+<title>Forex Trading Journey | Join Telegram</title>
+<meta name="description" content="Forex education, chart learning and risk management community.">
+
+<style>
+:root{
+  --green:#54efbd;
+  --text:#f4f8ff;
+  --muted:#a6b7cc;
+  --border:rgba(120,170,200,.2);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:radial-gradient(ellipse at top,#122c43 0%,#050b16 48%);
+  line-height:1.7;
+}
+.page{max-width:850px;width:calc(100% - 28px);margin:auto;padding:22px 0 35px}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:900;font-size:14px;letter-spacing:.7px}
+.brand small{display:block;color:var(--green);font-size:10px;letter-spacing:2px}
+.logo-small{width:47px;height:47px;flex-shrink:0}
+.status{font-size:10px;border:1px solid var(--border);padding:6px 10px;border-radius:30px;color:var(--green)}
+.hero{
+  padding:35px 22px 27px;text-align:center;
+  border:1px solid var(--border);border-radius:25px;
+  background:linear-gradient(145deg,rgba(16,39,60,.98),rgba(6,16,29,.98));
+  box-shadow:0 25px 70px #0005;
+}
+.pill{display:inline-block;padding:6px 12px;border:1px solid #54efbd55;border-radius:30px;color:var(--green);font-size:10px;font-weight:bold;letter-spacing:1.4px}
+.logo-large{
+  display:grid;place-items:center;width:110px;height:110px;margin:24px auto 18px;
+  border-radius:30px;border:1px solid #54efbd77;
+  background:linear-gradient(145deg,#16434a,#0b2030);
+  box-shadow:0 0 35px #54efbd17;
+}
+.logo-large svg{width:83px;height:83px}
+h1{font-size:clamp(32px,7vw,51px);line-height:1.15;letter-spacing:-1.5px;margin-bottom:16px}
+.green{color:var(--green)}
+.subtitle{font-size:14px;color:#bdcada;max-width:560px;margin:auto}
+.goal{margin-top:26px;padding:21px 12px;border:1px solid #e9c77777;border-radius:17px;background:linear-gradient(120deg,#30291c55,#0b1725)}
+.goal-label{color:#f2ce7c;font-size:11px;font-weight:bold;letter-spacing:1.5px}
+.amount{font-size:clamp(27px,6vw,39px);font-weight:900;margin:7px 0}
+.amount span{color:#f2ce7c}
+.note{font-size:11px;color:#c1c9d3}
+.section-title{text-align:center;margin:32px 0 17px}
+.section-title small{color:var(--green);letter-spacing:2px;font-size:10px;font-weight:bold}
+.section-title h2{font-size:25px;line-height:1.4;margin-top:5px}
+.section-title p{font-size:12px;color:var(--muted);margin-top:4px}
+.features{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.feature{padding:17px 15px;border:1px solid var(--border);border-radius:15px;background:linear-gradient(145deg,#112239,#0a1524)}
+.feature-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:#54efbd12;border:1px solid #54efbd33;font-size:21px;margin-bottom:10px}
+.feature h3{font-size:14px;margin-bottom:5px}
+.feature p{font-size:12px;color:var(--muted);line-height:1.8}
+.steps{margin-top:23px;padding:20px;border:1px solid var(--border);border-radius:17px;background:#0b1727}
+.steps h2{font-size:18px;margin-bottom:14px}
+.step{display:flex;gap:12px;margin-top:13px}
+.number{width:32px;height:32px;flex-shrink:0;display:grid;place-items:center;border-radius:10px;background:#54efbd14;color:var(--green);font-weight:bold;font-size:12px}
+.step h3{font-size:13px}
+.step p{font-size:12px;color:var(--muted)}
+.cta{margin-top:24px;padding:24px 18px;text-align:center;border:1px solid #54efbd55;border-radius:19px;background:linear-gradient(130deg,#10352f55,#0b1928)}
+.cta h2{font-size:23px}
+.cta p{font-size:12px;color:var(--muted);margin-top:6px}
+.join{
+  display:flex;justify-content:center;align-items:center;gap:10px;
+  margin-top:20px;padding:16px 12px;width:100%;
+  border-radius:13px;background:linear-gradient(100deg,#70f6ce,#2acda1);
+  color:#041b17;text-decoration:none;font-size:14px;font-weight:900;
+  box-shadow:0 8px 28px #2acda126;transition:.2s;
+}
+.join:hover{transform:translateY(-2px);box-shadow:0 12px 32px #2acda144}
+.telegram{width:26px;height:26px;flex-shrink:0}
+.cta-note{font-size:10px!important;margin-top:11px!important}
+.about,.risk{padding:19px;margin-top:19px;border-radius:15px}
+.about{background:#0b1727;border:1px solid var(--border)}
+.about h3{font-size:16px;margin-bottom:7px}
+.about p{font-size:12px;color:#b6c5d6}
+.risk{background:#241f16;border:1px solid #e9c77744;border-left:3px solid #e9c777}
+.risk h3{font-size:12px;color:#f2ce7c;margin-bottom:6px}
+.risk p{font-size:11px;color:#d0c5ad}
+footer{text-align:center;padding:25px 8px 0;font-size:10px;color:#8295aa}
+.footer-logo{width:32px;height:32px;display:block;margin:0 auto 8px}
+footer strong{color:#cbd9e7;letter-spacing:1px}
+footer p{margin-top:5px}
+a:focus-visible{outline:3px solid white;outline-offset:4px}
+
+/* Top button */
+.top-join-wrap{max-width:390px;margin:22px auto 0}
+.top-join{margin-top:0;min-height:58px;font-size:15px;letter-spacing:.2px}
+
+/* Fixed button: mobile only */
+.mobile-join-bar{display:none}
+
+@media(max-width:600px){
+  body{padding-bottom:88px}
+  .page{width:calc(100% - 20px);padding-top:14px}
+  .hero{padding:27px 14px 21px}
+  .brand{font-size:11px;gap:7px}
+  .logo-small{width:39px;height:39px}
+  .status{font-size:9px;padding:5px 7px}
+  .logo-large{width:92px;height:92px;border-radius:25px}
+  .logo-large svg{width:70px;height:70px}
+  h1{letter-spacing:-.8px}
+  .subtitle{font-size:12px}
+  .features{gap:9px}
+  .feature{padding:13px 11px}
+  .feature h3{font-size:12px}
+  .feature p{font-size:11px}
+  .cta{padding:21px 13px}
+  .join{font-size:12px}
+  .top-join-wrap{margin-top:20px}
+  .top-join{min-height:60px;font-size:14px;border-radius:15px}
+
+  .mobile-join-bar{
+    display:block;
+    position:fixed;
+    z-index:9999;
+    left:0;right:0;bottom:0;
+    padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+    background:linear-gradient(180deg,rgba(5,11,22,0),rgba(5,11,22,.97) 24%);
+    backdrop-filter:blur(10px);
+  }
+  .mobile-join-bar .join{
+    max-width:560px;
+    margin:0 auto;
+    min-height:54px;
+    padding:13px 10px;
+    font-size:13px;
+    border-radius:14px;
+    box-shadow:0 5px 25px #2acda144;
+  }
+}
+@media(max-width:340px){.features{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
 </head>
 
 <body>
+<main class="page">
 
-  <main class="page">
+<header>
+  <div class="brand">
+    <svg class="logo-small" viewBox="0 0 100 100" role="img" aria-label="Forex Journey logo">
+      <defs>
+        <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#8affdc"/>
+          <stop offset="100%" stop-color="#20c997"/>
+        </linearGradient>
+      </defs>
+      <rect x="3" y="3" width="94" height="94" rx="27" fill="#10283a" stroke="url(#lg)" stroke-width="3"/>
+      <path d="M22 72H78" stroke="#54efbd" stroke-width="3" opacity=".6"/>
+      <rect x="25" y="53" width="12" height="19" rx="2" fill="url(#lg)"/>
+      <rect x="44" y="40" width="12" height="32" rx="2" fill="url(#lg)"/>
+      <rect x="63" y="26" width="12" height="46" rx="2" fill="url(#lg)"/>
+      <path d="M19 48L39 36L51 41L76 17" fill="none" stroke="#8affdc" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M60 17H76V33" fill="none" stroke="#8affdc" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div>FOREX TRADING<small>J O U R N E Y</small></div>
+  </div>
+  <div class="status">◆ LEARN &amp; GROW</div>
+</header>
 
-    <!-- HEADER -->
-    <header class="header">
-      <div class="brand">
-        <div class="brand-icon" aria-hidden="true">↗</div>
-        <span>FOREX JOURNEY</span>
-      </div>
+<section class="hero">
+  <div class="pill">✦ FOREX EDUCATION COMMUNITY</div>
 
-      <div class="header-tag">
-        <span>◆</span> LEARN &amp; GROW
-      </div>
-    </header>
+  <div class="logo-large">
+    <svg viewBox="0 0 100 100" role="img" aria-label="Forex Trading Journey growth logo">
+      <defs>
+        <linearGradient id="mainGreen" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0%" stop-color="#20c997"/>
+          <stop offset="100%" stop-color="#91ffe0"/>
+        </linearGradient>
+      </defs>
+      <circle cx="50" cy="50" r="45" fill="none" stroke="url(#mainGreen)" stroke-width="2.5"/>
+      <rect x="23" y="58" width="13" height="20" rx="2" fill="url(#mainGreen)"/>
+      <rect x="43" y="45" width="13" height="33" rx="2" fill="url(#mainGreen)"/>
+      <rect x="63" y="31" width="13" height="47" rx="2" fill="url(#mainGreen)"/>
+      <path d="M17 53L37 41L48 46L75 19" fill="none" stroke="#91ffe0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M58 19H75V36" fill="none" stroke="#91ffe0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
 
-    <!-- HERO -->
-    <section class="hero">
+  <h1>Learn Forex.<br><span class="green">Trade With a Plan.</span></h1>
+  <p class="subtitle">
+    Forex market analysis, chart learning, trading concepts aur
+    risk management — ek hi Telegram community mein.
+  </p>
 
-      <div class="eyebrow">
-        <span class="live-dot"></span>
-        FOREX EDUCATION COMMUNITY
-      </div>
+  <!-- Top Telegram button -->
+  <div class="top-join-wrap">
+    <a class="join top-join" href="https://t.me/+7tYiOUjhI8I1OGU1"
+       target="_blank" rel="noopener noreferrer">
+      <svg class="telegram" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M21.7 3.3a1.6 1.6 0 0 0-1.65-.3L2.4 10.1c-1.2.48-1.18 1.16-.22 1.46l4.52 1.41 1.74 5.42c.22.6.12.84.75.84.49 0 .7-.22.97-.49l2.2-2.14 4.57 3.38c.84.46 1.45.22 1.66-.78l3.01-14.2c.31-1.24-.47-1.8-1.9-1.7ZM8.48 12.65l9.72-6.13c.48-.3.92-.14.56.2l-8.03 7.25-.31 3.3-1.94-4.62Z"/>
+      </svg>
+       JOIN TELEGRAM COMMUNITY →
+    </a>
+  </div>
 
-      <div class="hero-logo" aria-hidden="true">📈</div>
+  <div class="goal">
+    <div class="goal-label">30-DAY LEARNING JOURNEY</div>
+    <div class="amount">₹10,000 <span>→</span> ₹1 Lakh</div>
+    <p class="note">Ek goal. Ek disciplined learning journey.</p>
+    <p class="note" style="margin-top:9px;color:#f2ce7c">Personal target only · No guaranteed returns</p>
+  </div>
 
-      <h1>
-        Learn Forex.<br>
-        <span class="highlight">Trade With a Plan.</span>
-      </h1>
+  <div class="section-title">
+    <small>WHAT YOU'LL LEARN</small>
+    <h2>Telegram Par Kya Milega?</h2>
+    <p>Learn the concepts. Understand the risks.</p>
+  </div>
 
-      <p class="subtitle">
-        Market analysis, chart reading, trading concepts aur
-        risk management seekhein — ek hi Telegram community mein.
-      </p>
+  <div class="features">
+    <article class="feature">
+      <div class="feature-icon">📊</div>
+      <h3>Market Analysis</h3>
+      <p>Forex trends aur price movements ko samajhna.</p>
+    </article>
+    <article class="feature">
+      <div class="feature-icon">📈</div>
+      <h3>Chart Learning</h3>
+      <p>Candlesticks aur technical concepts ki learning.</p>
+    </article>
+    <article class="feature">
+      <div class="feature-icon">🛡️</div>
+      <h3>Risk Management</h3>
+      <p>Stop Loss, position sizing aur capital risk ki jaankari.</p>
+    </article>
+    <article class="feature">
+      <div class="feature-icon">🎯</div>
+      <h3>Trading Discipline</h3>
+      <p>Planning, patience aur responsible decision-making.</p>
+    </article>
+  </div>
 
-      <!-- GOAL CARD -->
-      <div class="goal-card">
-        <div class="goal-label">30-DAY LEARNING JOURNEY</div>
+  <div class="steps">
+    <h2>🚀 Your Learning Journey</h2>
+    <div class="step">
+      <div class="number">01</div>
+      <div><h3>Join the Community</h3><p>Telegram channel open karein aur educational content dekhein.</p></div>
+    </div>
+    <div class="step">
+      <div class="number">02</div>
+      <div><h3>Learn the Basics</h3><p>Charts, market concepts aur risk management samjhein.</p></div>
+    </div>
+    <div class="step">
+      <div class="number">03</div>
+      <div><h3>Build Your Own Plan</h3><p>Research aur practice ke saath apni knowledge improve karein.</p></div>
+    </div>
+  </div>
 
-        <div class="goal-amount">
-          ₹10,000 <span class="goal-arrow">→</span> ₹1 Lakh
-        </div>
+  <div class="cta">
+    <h2>Start Your Learning Journey</h2>
+    <p>Forex education aur market learning ke liye hamari Telegram community join karein.</p>
+    <a class="join" href="https://t.me/+7tYiOUjhI8I1OGU1"
+       target="_blank" rel="noopener noreferrer">
+      <svg class="telegram" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M21.7 3.3a1.6 1.6 0 0 0-1.65-.3L2.4 10.1c-1.2.48-1.18 1.16-.22 1.46l4.52 1.41 1.74 5.42c.22.6.12.84.75.84.49 0 .7-.22.97-.49l2.2-2.14 4.57 3.38c.84.46 1.45.22 1.66-.78l3.01-14.2c.31-1.24-.47-1.8-1.9-1.7ZM8.48 12.65l9.72-6.13c.48-.3.92-.14.56.2l-8.03 7.25-.31 3.3-1.94-4.62Z"/>
+      </svg>
+      JOIN TELEGRAM COMMUNITY →
+    </a>
+    <p class="cta-note">✓ Telegram par khud Join karein</p>
+  </div>
+</section>
 
-        <p class="goal-description">
-          Ek goal. Ek disciplined learning journey.
-        </p>
+<section class="about">
+  <h3>About Our Community</h3>
+  <p>
+    Hamara objective Forex market education, chart analysis, trading
+    concepts aur disciplined risk management ko samajhne mein madad
+    karna hai. Learning aur research ke saath apni knowledge improve
+    karein. Kisi bhi trade mein profit ki guarantee nahi hai.
+  </p>
+</section>
 
-        <div class="goal-note">
-          Personal target only · No guaranteed returns
-        </div>
-      </div>
+<section class="risk">
+  <h3>⚠ Risk Disclosure</h3>
+  <p>
+    Forex aur leveraged trading mein substantial financial risk hota hai.
+    Aap apni poori trading capital lose kar sakte hain. ₹10,000 se ₹1,00,000
+    ka figure sirf illustrative target hai, profit ka promise nahi.
+    Trading se pehle applicable local laws aur platform ki legality
+    samjhein. Yeh page educational information ke liye hai, personalized
+    financial advice nahi.
+  </p>
+</section>
 
-      <!-- FEATURES -->
-      <div class="section-heading">
-        <div class="mini-label">WHAT YOU'LL LEARN</div>
-        <h2>Telegram Par Kya Milega?</h2>
-        <p>Trading ko samajhne ke liye educational content.</p>
-      </div>
+<footer>
+  <svg class="footer-logo" viewBox="0 0 100 100" aria-hidden="true">
+    <rect x="3" y="3" width="94" height="94" rx="25" fill="#10283a" stroke="#54efbd" stroke-width="3"/>
+    <rect x="24" y="54" width="13" height="23" rx="2" fill="#54efbd"/>
+    <rect x="44" y="40" width="13" height="37" rx="2" fill="#54efbd"/>
+    <rect x="64" y="25" width="13" height="52" rx="2" fill="#54efbd"/>
+    <path d="M18 47L39 35L51 40L77 17M61 17H77V33" fill="none" stroke="#91ffe0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <strong>FOREX TRADING JOURNEY</strong>
+  <p>© <span id="year">2026</span> All Rights Reserved.</p>
+  <p>Learn Smart. Manage Risk. Stay Disciplined.</p>
+</footer>
 
-      <div class="features">
+</main>
 
-        <article class="feature">
-          <div class="feature-icon" aria-hidden="true">📊</div>
-          <h3>Market Analysis</h3>
-          <p>Forex trends aur price movements ko samajhna.</p>
-        </article>
-
-        <article class="feature">
-          <div class="feature-icon" aria-hidden="true">📉</div>
-          <h3>Chart Learning</h3>
-          <p>Candlesticks aur technical concepts ki learning.</p>
-        </article>
-
-        <article class="feature">
-          <div class="feature-icon" aria-hidden="true">🛡️</div>
-          <h3>Risk Management</h3>
-          <p>Stop Loss, position sizing aur capital risk ki jaankari.</p>
-        </article>
-
-        <article class="feature">
-          <div class="feature-icon" aria-hidden="true">🎯</div>
-          <h3>Trading Discipline</h3>
-          <p>Planning, patience aur disciplined decision-making.</p>
-        </article>
-
-      </div>
-
-      <!-- LEARNING JOURNEY -->
-      <div class="learning-card">
-        <h3>🚀 Your Learning Journey</h3>
-
-        <div class="step">
-          <div class="step-number">01</div>
-          <div>
-            <h4>Join the Community</h4>
-            <p>Telegram community open karein aur available content dekhein.</p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-number">02</div>
-          <div>
-            <h4>Learn the Basics</h4>
-            <p>Charts, market concepts aur risk management samjhein.</p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-number">03</div>
-          <div>
-            <h4>Build Your Own Plan</h4>
-            <p>Research aur practice ke saath apni knowledge improve karein.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- TELEGRAM CTA -->
-      <div class="cta">
-        <h2>Start Your Learning Journey</h2>
-
-        <p>
-          Forex education aur market learning ke liye
-          hamari Telegram community join karein.
-        </p>
-
-        <!-- YAHAN APNA REAL TELEGRAM LINK DAALEIN -->
-        <a
-          class="join-btn"
-          href="https://t.me/+7tYiOUjhI8I1OGU1"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Join Forex Telegram Community"
-        >
-          <svg
-            class="telegram-icon"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <path d="M21.7 3.3a1.6 1.6 0 0 0-1.65-.3L2.4 10.1c-1.2.48-1.18 1.16-.22 1.46l4.52 1.41 1.74 5.42c.22.6.12.84.75.84.49 0 .7-.22.97-.49l2.2-2.14 4.57 3.38c.84.46 1.45.22 1.66-.78l3.01-14.2c.31-1.24-.47-1.8-1.9-1.7ZM8.48 12.65l9.72-6.13c.48-.3.92-.14.56.2l-8.03 7.25-.31 3.3-1.94-4.62Z"/>
-          </svg>
-
-          JOIN TELEGRAM COMMUNITY
-
-          <span aria-hidden="true">→</span>
-        </a>
-
-        <div class="cta-note">
-          <span>✓</span> Telegram par khud Join karein
-        </div>
-      </div>
-
-    </section>
-
-    <!-- ABOUT -->
-    <section class="about">
-      <h3>About Our Community</h3>
-
-      <p>
-        Hamara objective Forex market ki education, chart analysis,
-        trading concepts aur disciplined risk management ko samajhne
-        mein madad karna hai. Learning aur research ke saath apni
-        knowledge improve karein. Kisi bhi trade mein profit ki guarantee nahi hai.
-      </p>
-    </section>
-
-    <!-- RISK DISCLOSURE -->
-    <section class="risk">
-      <strong>⚠ Risk Disclosure</strong>
-
-      Forex aur leveraged trading mein substantial financial risk ho
-      sakta hai. Aap apni poori trading capital bhi lose kar sakte hain.
-      ₹10,000 se ₹1,00,000 ka figure sirf illustrative target hai,
-      koi promise ya guaranteed return nahi. Trading se pehle applicable
-      local laws, platform ki legality aur risks ko samjhein.
-      Sirf wahi paisa risk karein jiska loss aap afford kar sakte hain.
-      Yeh page educational information ke liye hai, personalized
-      financial advice nahi.
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-      <div class="footer-line"></div>
-
-      <div class="footer-brand">
-        FOREX TRADING EDUCATION COMMUNITY
-      </div>
-
-      <div>© <span id="year">2026</span> All Rights Reserved.</div>
-
-      <div>Learn Smart. Manage Risk. Stay Disciplined.</div>
-    </footer>
-
-  </main>
-
-  <script>
-    // Automatically update the copyright year
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-  </script>
-
+<!-- Mobile fixed bottom button -->
+<div class="mobile-join-bar">
+  <a class="join" href="https://t.me/YOUR_CHANNEL_USERNAME"
+     target="_blank" rel="noopener noreferrer" aria-label="Join Telegram community">
+    <svg class="telegram" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M21.7 3.3a1.6 1.6 0 0 0-1.65-.3L2.4 10.1c-1.2.48-1.18 1.16-.22 1.46l4.52 1.41 1.74 5.42c.22.6.12.84.75.84.49 0 .7-.22.97-.49l2.2-2.14 4.57 3.38c.84.46 1.45.22 1.66-.78l3.01-14.2c.31-1.24-.47-1.8-1.9-1.7ZM8.48 12.65l9.72-6.13c.48-.3.92-.14.56.2l-8.03 7.25-.31 3.3-1.94-4.62Z"/>
+    </svg>
+    JOIN TELEGRAM COMMUNITY →
+  </a>
+</div>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2157007431918914');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2157007431918914&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
